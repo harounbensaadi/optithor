@@ -18,10 +18,6 @@
 # - Changing compounds or constraints may lead to infeasible solutions.
 # ---------------------------------------------------------------------
 
-# import sys
-# from pathlib import Path
-# sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
-
 from optithor import CompoundDb, optimize_medium
 from optithor.config import SolverConfig
 from optithor.reports import build_optimization_tables, build_selected_cids_table

@@ -26,10 +26,6 @@
 # - PubChem is NEVER contacted unless explicitly requested
 # ---------------------------------------------------------------------
 
-# import sys
-# from pathlib import Path
-# sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
-
 from optithor import CompoundDb
 
 def main() -> None:
