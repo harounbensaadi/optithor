@@ -1,0 +1,72 @@
+[build-system]
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
+
+[project]
+name = "optithor"
+version = "0.1.0"
+description = "Linear-programming based medium optimization toolkit."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { file = "LICENSE" }
+
+authors = [
+  { name = "Haroun Taki Eddine Bensaadi", email = "hte.bensaadi@gmail.com" }
+]
+
+[project.urls]
+Homepage = "https://github.com/harounbensaadi/optithor"
+Repository = "https://github.com/harounbensaadi/optithor"
+Issues = "https://github.com/harounbensaadi/optithor/issues"
+
+classifiers = [
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+]
+
+dependencies = [
+  "numpy==2.2.1",
+  "pandas==2.2.3",
+  "scipy==1.15.0",
+  "chempy==0.9.0",
+  "quantities==0.16.1",
+  "aiohttp==3.11.11",
+  "openpyxl==3.1.5",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["optithor"]
+
+[tool.hatch.build.targets.wheel.sources]
+"src" = ""
+
+[tool.hatch.build.targets.sdist]
+include = [
+  "src/optithor/**",
+  "README.md",
+  "LICENSE",
+  "CONTRIBUTING.md",
+]
+
+[tool.hatch.build.targets.wheel.force-include]
+"src/optithor/resources/compound_db.parquet" = "optithor/resources/compound_db.parquet"
+
+[tool.hatch.build]
+exclude = [
+  "/compound_db_builder",
+  "*.ipynb",
+  "/tmp",
+  "/output",
+  "/raw_seeds",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "N"]
+ignore = []
