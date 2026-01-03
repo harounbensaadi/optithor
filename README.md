@@ -20,7 +20,7 @@ The package ships with a **pre-built compound database** derived from PubChem, s
 
 ## Installation
 
-```python
+```bash
 pip install optithor
 
 ```
@@ -264,6 +264,7 @@ OptiThor is intended as a **design and exploration tool**, not a substitute for 
 
 ## Project structure
 
+```text
     src/optithor/            # Core OptiThor package (runtime code)
         resources/           # Packaged compound database (Parquet)
     examples/                # Usage examples (basic + advanced)
@@ -273,6 +274,7 @@ OptiThor is intended as a **design and exploration tool**, not a substitute for 
     README.md
     CONTRIBUTING.md
     LICENSE
+```
 
 The `compound_db_builder/` directory documents how the packaged compound
 database was generated and curated. It is **not required for normal usage**
