@@ -5,19 +5,14 @@ build-backend = "hatchling.build"
 [project]
 name = "optithor"
 version = "0.1.0"
-description = "Linear-programming based medium optimization toolkit."
+description = "Linear-programming–based optimization of microbial growth media under elemental stoichiometric constraints."
 readme = "README.md"
 requires-python = ">=3.10"
-license = { file = "LICENSE" }
+license = { text = "MIT" }
 
 authors = [
   { name = "Haroun Taki Eddine Bensaadi", email = "hte.bensaadi@gmail.com" }
 ]
-
-[project.urls]
-Homepage = "https://github.com/harounbensaadi/optithor"
-Repository = "https://github.com/harounbensaadi/optithor"
-Issues = "https://github.com/harounbensaadi/optithor/issues"
 
 classifiers = [
   "License :: OSI Approved :: MIT License",
@@ -30,6 +25,7 @@ classifiers = [
 dependencies = [
   "numpy==2.2.1",
   "pandas==2.2.3",
+  "pyarrow>=15.0.0",
   "scipy==1.15.0",
   "chempy==0.9.0",
   "quantities==0.16.1",
@@ -37,18 +33,19 @@ dependencies = [
   "openpyxl==3.1.5",
 ]
 
-[tool.hatch.build.targets.wheel]
-packages = ["optithor"]
+[project.urls]
+Homepage = "https://github.com/harounbensaadi/optithor"
+Repository = "https://github.com/harounbensaadi/optithor"
+Issues = "https://github.com/harounbensaadi/optithor/issues"
 
-[tool.hatch.build.targets.wheel.sources]
-"src" = ""
+[tool.hatch.build.targets.wheel]
+packages = ["src/optithor"]
 
 [tool.hatch.build.targets.sdist]
 include = [
   "src/optithor/**",
   "README.md",
   "LICENSE",
-  "CONTRIBUTING.md",
 ]
 
 [tool.hatch.build.targets.wheel.force-include]

@@ -1,6 +1,7 @@
 __pycache__/
 *.py[cod]
 .venv/
+.testenv/
 dev/
 .ipynb_checkpoints/
 .vscode/

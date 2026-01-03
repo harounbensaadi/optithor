@@ -1,3 +1,8 @@
+[![PyPI version](https://img.shields.io/pypi/v/optithor.svg)](https://pypi.org/project/optithor/)
+[![Python versions](https://img.shields.io/pypi/pyversions/optithor.svg)](https://pypi.org/project/optithor/)
+[![License](https://img.shields.io/pypi/l/optithor.svg)](https://pypi.org/project/optithor/)
+[![CI](https://github.com/harounbensaadi/optithor/actions/workflows/ci.yml/badge.svg)](https://github.com/harounbensaadi/optithor/actions/workflows/ci.yml)
+
 # OptiThor
 
 **OptiThor** is a Python package for **linear-programming–based optimization of microbial growth media** under elemental stoichiometric constraints.
@@ -20,43 +25,56 @@ The package ships with a **pre-built compound database** derived from PubChem, s
 **Python requirement:** ≥ 3.10
 
 ---
+## Quick example
+
+```python
+from optithor import CompoundDb
+
+db = CompoundDb().load()
+print(db.head())
+
+```
+---
 
 ## Quick start (minimal example)
 
-    from optithor import CompoundDb, optimize_medium
-    from optithor.types import ElementRequirement, MediumOptimizationInput
+```python
 
-    repo = CompoundDb()
+from optithor import CompoundDb, optimize_medium
+from optithor.types import ElementRequirement, MediumOptimizationInput
 
-    compound_cids = [
-        "57429219",
-        "5284359",
-        "24643",
-        "61482",
-    ]
+repo = CompoundDb()
 
-    required_elements = {
-        "C": ElementRequirement(reference_yield_g_cdw_per_g=1.0, excess_factor=1.0),
-        "N": ElementRequirement(reference_yield_g_cdw_per_g=8.0, excess_factor=3.0),
-        "P": ElementRequirement(reference_yield_g_cdw_per_g=33.0, excess_factor=5.0),
-    }
+compound_cids = [
+    "57429219",
+    "5284359",
+    "24643",
+    "61482",
+]
 
-    medium_input = MediumOptimizationInput(
-        compound_cids=compound_cids,
-        required_elements=required_elements,
-        max_dry_biomass_g_per_l=10.0,
-    )
+required_elements = {
+    "C": ElementRequirement(reference_yield_g_cdw_per_g=1.0, excess_factor=1.0),
+    "N": ElementRequirement(reference_yield_g_cdw_per_g=8.0, excess_factor=3.0),
+    "P": ElementRequirement(reference_yield_g_cdw_per_g=33.0, excess_factor=5.0),
+}
 
-    result = optimize_medium(
-        medium_input=medium_input,
-        compound_repository=repo,
-    )
+medium_input = MediumOptimizationInput(
+    compound_cids=compound_cids,
+    required_elements=required_elements,
+    max_dry_biomass_g_per_l=10.0,
+)
 
-    if not result.success:
-        raise RuntimeError(result.message)
+result = optimize_medium(
+    medium_input=medium_input,
+    compound_repository=repo,
+)
 
-    print(result.solution)
+if not result.success:
+    raise RuntimeError(result.message)
 
+print(result.solution)
+
+```
 ---
 
 ## Understanding the results
@@ -262,6 +280,11 @@ please open an issue or a pull request on GitHub.
 Before contributing code, please read the contribution guidelines:
 https://github.com/harounbensaadi/optithor/blob/main/CONTRIBUTING.md
 
+---
+
+## Citation
+
+If you use OptiThor in academic work, please cite or reference this repository.
 ---
 
 ## License
