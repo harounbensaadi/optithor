@@ -21,7 +21,7 @@ The package ships with a **pre-built compound database** derived from PubChem, s
 ## Installation
 
 ```python
-    pip install optithor
+pip install optithor
 
 ```
 
@@ -136,8 +136,8 @@ OptiThor ships with a **pre-generated compound database** containing molecular f
 The database is accessed via:
 
 ```python
-    from optithor import CompoundDb
-    repo = CompoundDb()
+from optithor import CompoundDb
+repo = CompoundDb()
 ```
 
 **Cache behavior**
@@ -149,7 +149,7 @@ The database is accessed via:
 If needed, the local cache can be **reset to the packaged database**:
 
 ```python
-    repo.load(force_reload=True)
+repo.load(force_reload=True)
 ```
 
 This overwrites the local cache using the database shipped in the installed wheel.
@@ -161,7 +161,7 @@ This overwrites the local cache using the database shipped in the installed whee
 Compounds are referenced using **PubChem Compound IDs (CIDs)** provided as strings:
 
 ```python
-    compound_cids = ["5793", "4873", "62640"]
+compound_cids = ["5793", "4873", "62640"]
 ```
 ---
 
@@ -170,10 +170,10 @@ Compounds are referenced using **PubChem Compound IDs (CIDs)** provided as strin
 Elemental constraints are defined using `ElementRequirement`:
 
 ```python
-    ElementRequirement(
-        reference_yield_g_cdw_per_g=...,  # grams CDW per gram of element
-        excess_factor=...,                # oversupply safety factor
-    )
+ElementRequirement(
+    reference_yield_g_cdw_per_g=...,  # grams CDW per gram of element
+    excess_factor=...,                # oversupply safety factor
+)
 ```
 
 These parameters are **biological assumptions** and must be adapted to the organism and growth model.
@@ -196,15 +196,15 @@ Solver behavior can be customized, but default settings are suitable for most us
 To see which requested compounds exist in the local database:
 
 ```python
-    from optithor.reports import build_selected_cids_table
+from optithor.reports import build_selected_cids_table
 
-    df = build_selected_cids_table(
-        compound_repository=repo,
-        compound_cids=compound_cids,
-        force_reload=False,
-    )
+df = build_selected_cids_table(
+    compound_repository=repo,
+    compound_cids=compound_cids,
+    force_reload=False,
+)
 
-    print(df)
+print(df)
 ```
 
 This operation is **offline** and uses the local cache.
@@ -218,11 +218,11 @@ This operation is **offline** and uses the local cache.
 To explicitly allow network access and fetch missing compounds from PubChem:
 
 ```python
-    df = repo.get_compounds_by_cids(
-        compound_cids,
-        fetch_missing=True,
-        update_cache=True,
-    )
+df = repo.get_compounds_by_cids(
+    compound_cids,
+    fetch_missing=True,
+    update_cache=True,
+)
 ```
 
 Fetched compounds are optionally written back into the local cache.
@@ -234,17 +234,17 @@ Fetched compounds are optionally written back into the local cache.
 ### Diagnostics and reporting tables
 
 ```python
-    from optithor.reports import build_optimization_tables
+from optithor.reports import build_optimization_tables
 
-    tables = build_optimization_tables(
-        medium_input=medium_input,
-        result=result,
-        compound_repository=repo,
-        decimals=2,
-    )
+tables = build_optimization_tables(
+    medium_input=medium_input,
+    result=result,
+    compound_repository=repo,
+    decimals=2,
+)
 
-    tables.compounds
-    tables.elements
+tables.compounds
+tables.elements
 ```
 
 Returned objects are Pandas DataFrames and can be exported or plotted.
@@ -271,6 +271,7 @@ OptiThor is intended as a **design and exploration tool**, not a substitute for 
     compound_db_builder/     # Database construction pipeline (for transparency)
     pyproject.toml
     README.md
+    CONTRIBUTING.md
     LICENSE
 
 The `compound_db_builder/` directory documents how the packaged compound
