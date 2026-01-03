@@ -300,7 +300,8 @@ https://github.com/harounbensaadi/optithor/blob/main/CONTRIBUTING.md
 
 ## Citation
 
-If you use OptiThor in academic work, please cite or reference this repository.
+If you use OptiThor in **academic work**, please cite or reference this repository.
+
 ---
 
 ## License
