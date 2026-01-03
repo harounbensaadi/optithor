@@ -5,7 +5,7 @@
 
 # OptiThor
 
-**OptiThor** is a Python package for **linear-programming–based optimization of microbial growth media** under elemental stoichiometric constraints.
+**OptiThor** is a Python package for **linear-programming-based optimization of microbial growth media** under elemental stoichiometric constraints.
 
 Given:
 - a set of candidate compounds (identified by PubChem CIDs),
@@ -134,20 +134,31 @@ Purpose:
 - Shows the molecular formula and molar mass used internally
 - Detects missing compounds early (before solving)
 
-| PubChem CID | PubChem Name                   | Formula        | MW    |
-|------------:|--------------------------------|----------------|-------|
-| 57429219    | Ammonium chloride monohydrate  | ClH6NO         | 71.51 |
-| 5284359     | Calcium chloride               | CaCl2          | 110.98 |
-| 24643       | Cobaltous chloride hexahydrate | Cl2CoH12O6     | 237.93 |
-| 61482       | Cupric chloride dihydrate      | Cl2CuH4O2      | 170.48 |
-| 91618179    | Ferric chloride dihydrate      | Cl3FeH4O2      | 198.23 |
-| 5793        | D-Glucose                      | C6H12O6        | 180.16 |
-| 5360315     | Magnesium chloride             | Cl2Mg          | 95.21 |
-| 24480       | Manganese (II) chloride        | Cl2Mn          | 125.84 |
-| 23672064    | Monosodium phosphate           | H2NaO4P        | 119.98 |
-| 4873        | Potassium chloride             | ClK            | 74.55 |
-| 23673662    | Sodium bisulfate monohydrate   | H3NaO5S        | 138.08 |
-| 62640       | Zinc sulfate heptahydrate      | H14O11SZn      | 287.60 |
+<table width="100%" style="table-layout: fixed; border-collapse: collapse;">
+  <thead style="background-color: rgba(0, 0, 0, 0.05);">
+    <tr>
+      <th align="right">PubChem CID</th>
+      <th align="left">PubChem Name</th>
+      <th align="left">Formula</th>
+      <th align="right">MW</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td align="right">57429219</td><td>Ammonium chloride monohydrate</td><td>ClH6NO</td><td align="right">71.51</td></tr>
+    <tr><td align="right">5284359</td><td>Calcium chloride</td><td>CaCl2</td><td align="right">110.98</td></tr>
+    <tr><td align="right">24643</td><td>Cobaltous chloride hexahydrate</td><td>Cl2CoH12O6</td><td align="right">237.93</td></tr>
+    <tr><td align="right">61482</td><td>Cupric chloride dihydrate</td><td>Cl2CuH4O2</td><td align="right">170.48</td></tr>
+    <tr><td align="right">91618179</td><td>Ferric chloride dihydrate</td><td>Cl3FeH4O2</td><td align="right">198.23</td></tr>
+    <tr><td align="right">5793</td><td>D-Glucose</td><td>C6H12O6</td><td align="right">180.16</td></tr>
+    <tr><td align="right">5360315</td><td>Magnesium chloride</td><td>Cl2Mg</td><td align="right">95.21</td></tr>
+    <tr><td align="right">24480</td><td>Manganese (II) chloride</td><td>Cl2Mn</td><td align="right">125.84</td></tr>
+    <tr><td align="right">23672064</td><td>Monosodium phosphate</td><td>H2NaO4P</td><td align="right">119.98</td></tr>
+    <tr><td align="right">4873</td><td>Potassium chloride</td><td>ClK</td><td align="right">74.55</td></tr>
+    <tr><td align="right">23673662</td><td>Sodium bisulfate monohydrate</td><td>H3NaO5S</td><td align="right">138.08</td></tr>
+    <tr><td align="right">62640</td><td>Zinc sulfate heptahydrate</td><td>H14O11SZn</td><td align="right">287.60</td></tr>
+  </tbody>
+</table>
+
 
 If any CIDs are missing, they are reported explicitly and the optimization
 should not be run until resolved.
@@ -159,24 +170,36 @@ should not be run until resolved.
 This table represents the **final optimized medium recipe**.
 
 Key columns:
-- **Obtained Concentration** – optimal amount per compound
-- **Unit** – automatically scaled (g/L, mg/L, µg/L)
+- **Obtained Concentration** - optimal amount per compound
+- **Unit** - automatically scaled (g/L, mg/L, µg/L)
 - Values satisfy all elemental constraints while minimizing total compound mass
 
-| PubChem CID | Compound                       | MW (g/mol) | Obtained Concentration | Unit |
-|------------:|--------------------------------|-----------:|------------------------:|:-----|
-| 5360315     | Magnesium chloride             | 95.21      | 979.33                  | mg/L |
-| 4873        | Potassium chloride             | 74.55      | 953.37                  | mg/L |
-| 62640       | Zinc sulfate heptahydrate      | 287.60     | 87.98                   | mg/L |
-| 24480       | Manganese (II) chloride        | 125.84     | 45.81                   | mg/L |
-| 5793        | D-Glucose                      | 180.16     | 25.00                   | g/L |
-| 57429219    | Ammonium chloride monohydrate  | 71.51      | 19.14                   | g/L |
-| 24643       | Cobaltous chloride hexahydrate | 237.93     | 8.07                    | mg/L |
-| 23672064    | Monosodium phosphate           | 119.98     | 5.87                    | g/L |
-| 61482       | Cupric chloride dihydrate      | 170.48     | 5.37                    | mg/L |
-| 5284359     | Calcium chloride               | 110.98     | 2.77                    | g/L |
-| 23673662    | Sodium bisulfate monohydrate   | 138.08     | 2.11                    | g/L |
-| 91618179    | Ferric chloride dihydrate      | 198.23     | 1.77                    | g/L |
+<table width="100%" style="table-layout: fixed; border-collapse: collapse;">
+  <thead style="background-color: rgba(0, 0, 0, 0.05);">
+    <tr>
+      <th align="right">PubChem CID</th>
+      <th align="left">Compound</th>
+      <th align="right">MW (g/mol)</th>
+      <th align="right">Obtained Concentration</th>
+      <th align="left">Unit</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td align="right">5360315</td><td>Magnesium chloride</td><td align="right">95.21</td><td align="right">979.33</td><td>mg/L</td></tr>
+    <tr><td align="right">4873</td><td>Potassium chloride</td><td align="right">74.55</td><td align="right">953.37</td><td>mg/L</td></tr>
+    <tr><td align="right">62640</td><td>Zinc sulfate heptahydrate</td><td align="right">287.60</td><td align="right">87.98</td><td>mg/L</td></tr>
+    <tr><td align="right">24480</td><td>Manganese (II) chloride</td><td align="right">125.84</td><td align="right">45.81</td><td>mg/L</td></tr>
+    <tr><td align="right">5793</td><td>D-Glucose</td><td align="right">180.16</td><td align="right">25.00</td><td>g/L</td></tr>
+    <tr><td align="right">57429219</td><td>Ammonium chloride monohydrate</td><td align="right">71.51</td><td align="right">19.14</td><td>g/L</td></tr>
+    <tr><td align="right">24643</td><td>Cobaltous chloride hexahydrate</td><td align="right">237.93</td><td align="right">8.07</td><td>mg/L</td></tr>
+    <tr><td align="right">23672064</td><td>Monosodium phosphate</td><td align="right">119.98</td><td align="right">5.87</td><td>g/L</td></tr>
+    <tr><td align="right">61482</td><td>Cupric chloride dihydrate</td><td align="right">170.48</td><td align="right">5.37</td><td>mg/L</td></tr>
+    <tr><td align="right">5284359</td><td>Calcium chloride</td><td align="right">110.98</td><td align="right">2.77</td><td>g/L</td></tr>
+    <tr><td align="right">23673662</td><td>Sodium bisulfate monohydrate</td><td align="right">138.08</td><td align="right">2.11</td><td>g/L</td></tr>
+    <tr><td align="right">91618179</td><td>Ferric chloride dihydrate</td><td align="right">198.23</td><td align="right">1.77</td><td>g/L</td></tr>
+  </tbody>
+</table>
+
 
 Interpretation:
 - High concentrations correspond to **bulk nutrients** (C, N, major salts)
@@ -190,26 +213,40 @@ Interpretation:
 This table verifies that all elemental constraints are satisfied.
 
 Key columns:
-- **Reference Yield** – biological assumption (g CDW per g element)
-- **Excess Factor** – safety margin applied
-- **Required Mass** – target elemental mass after excess
-- **Obtained Mass** – mass supplied by the optimized medium
-- **Match (%)** – agreement between required and obtained values
+- **Reference Yield** - biological assumption (g CDW per g element)
+- **Excess Factor** - safety margin applied
+- **Required Mass** - target elemental mass after excess
+- **Obtained Mass** - mass supplied by the optimized medium
+- **Match (%)** - agreement between required and obtained values
 
-| Element | Reference Yield (gCDW/g) | Excess Factor | Required Mass | Obtained Mass | Unit | Match (%) |
-|:------:|------------------------:|--------------:|--------------:|--------------:|:-----:|----------:|
-| C  | 1      | 1  | 10.00  | 10.00  | g/L  | 100.0 |
-| N  | 8      | 3  | 3.75   | 3.75   | g/L  | 100.0 |
-| P  | 33     | 5  | 1515.15 | 1515.15 | mg/L | 100.0 |
-| Ca | 100    | 10 | 1000.00 | 1000.00 | mg/L | 100.0 |
-| S  | 100    | 5  | 500.00 | 500.00 | mg/L | 100.0 |
-| K  | 100    | 5  | 500.00 | 500.00 | mg/L | 100.0 |
-| Fe | 200    | 10 | 500.00 | 500.00 | mg/L | 100.0 |
-| Mg | 200    | 5  | 250.00 | 250.00 | mg/L | 100.0 |
-| Mn | 10000  | 20 | 20.00  | 20.00  | mg/L | 100.0 |
-| Zn | 10000  | 20 | 20.00  | 20.00  | mg/L | 100.0 |
-| Cu | 100000 | 20 | 2000.00 | 2000.00 | µg/L | 100.0 |
-| Co | 100000 | 20 | 2000.00 | 2000.00 | µg/L | 100.0 |
+<table width="100%" style="table-layout: fixed; border-collapse: collapse;">
+  <thead style="background-color: rgba(0, 0, 0, 0.05);">
+    <tr>
+      <th align="center">Element</th>
+      <th align="right">Reference Yield (gCDW/g)</th>
+      <th align="right">Excess Factor</th>
+      <th align="right">Required Mass</th>
+      <th align="right">Obtained Mass</th>
+      <th align="left">Unit</th>
+      <th align="right">Match (%)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td align="center">C</td><td align="right">1</td><td align="right">1</td><td align="right">10.00</td><td align="right">10.00</td><td>g/L</td><td align="right">100.0</td></tr>
+    <tr><td align="center">N</td><td align="right">8</td><td align="right">3</td><td align="right">3.75</td><td align="right">3.75</td><td>g/L</td><td align="right">100.0</td></tr>
+    <tr><td align="center">P</td><td align="right">33</td><td align="right">5</td><td align="right">1515.15</td><td align="right">1515.15</td><td>mg/L</td><td align="right">100.0</td></tr>
+    <tr><td align="center">Ca</td><td align="right">100</td><td align="right">10</td><td align="right">1000.00</td><td align="right">1000.00</td><td>mg/L</td><td align="right">100.0</td></tr>
+    <tr><td align="center">S</td><td align="right">100</td><td align="right">5</td><td align="right">500.00</td><td align="right">500.00</td><td>mg/L</td><td align="right">100.0</td></tr>
+    <tr><td align="center">K</td><td align="right">100</td><td align="right">5</td><td align="right">500.00</td><td align="right">500.00</td><td>mg/L</td><td align="right">100.0</td></tr>
+    <tr><td align="center">Fe</td><td align="right">200</td><td align="right">10</td><td align="right">500.00</td><td align="right">500.00</td><td>mg/L</td><td align="right">100.0</td></tr>
+    <tr><td align="center">Mg</td><td align="right">200</td><td align="right">5</td><td align="right">250.00</td><td align="right">250.00</td><td>mg/L</td><td align="right">100.0</td></tr>
+    <tr><td align="center">Mn</td><td align="right">10000</td><td align="right">20</td><td align="right">20.00</td><td align="right">20.00</td><td>mg/L</td><td align="right">100.0</td></tr>
+    <tr><td align="center">Zn</td><td align="right">10000</td><td align="right">20</td><td align="right">20.00</td><td align="right">20.00</td><td>mg/L</td><td align="right">100.0</td></tr>
+    <tr><td align="center">Cu</td><td align="right">100000</td><td align="right">20</td><td align="right">2000.00</td><td align="right">2000.00</td><td>µg/L</td><td align="right">100.0</td></tr>
+    <tr><td align="center">Co</td><td align="right">100000</td><td align="right">20</td><td align="right">2000.00</td><td align="right">2000.00</td><td>µg/L</td><td align="right">100.0</td></tr>
+  </tbody>
+</table>
+
 
 A **100% match** indicates that the solver satisfied the constraint
 within numerical tolerance.
